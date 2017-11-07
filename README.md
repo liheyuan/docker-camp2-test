@@ -37,6 +37,7 @@ gen_openvpn_cert.sh username
 route 10.0.0.0 255.255.255.0
 ```
  * connect to server
+ * remember openvpn client should not be your local computer, if you use virtulbox ,local pc will be gateway like 192.168.99.1
 ```
 sudo openvpn --config ./username.ovpn
 ```
