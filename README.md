@@ -33,8 +33,15 @@ gen_openvpn_cert.sh username
 ```
 # comment this line (will not use vpn default gw)
 #redirect-gateway def1
+
 # add this line, the swarm network route
 route 10.0.0.0 255.255.255.0
+
+# dns update
+script-security 2
+up /etc/openvpn/update-resolv-conf
+down /etc/openvpn/update-resolv-conf
+
 ```
  * connect to server
  * remember openvpn client should not be your local computer, if you use virtulbox ,local pc will be gateway like 192.168.99.1
