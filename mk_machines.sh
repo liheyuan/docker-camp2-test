@@ -18,23 +18,12 @@ for node in `ls nodes`;do
     $node
 done
 
-#for i in 1 2 3 10; do
-#    docker-machine create -d generic \
-#    --generic-ip-address 1024 \
-#    --generic-ssh-key 4096 \
-#    --virtualbox-hostonly-nicpromisc allow-all \
-#    node-$i
-#done
+ docker mirror
+for i in 1 2 3 10;do
+    docker-machine scp ./daemon.json node-$i:/tmp/
+    docker-machine ssh node-$i sudo cp -r /tmp/daemon.json /etc/docker/
+done
 
-# copy certs to node-10
-#./scp_machine_certs.sh
-
-# docker mirror
-#for i in 1 2 3 10;do
-#    docker-machine scp ./daemon.json node-$i:/tmp/
-#    docker-machine ssh node-$i sudo cp -r /tmp/daemon.json /etc/docker/
-#done
-
-# stop & start
-#./stop_nodes.sh
-#./start_nodes.sh
+ stop & start
+./stop_nodes.sh
+./start_nodes.sh
