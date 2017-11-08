@@ -18,12 +18,14 @@ for node in `ls nodes`;do
     $node
 done
 
- docker mirror
-for i in 1 2 3 10;do
-    docker-machine scp ./daemon.json node-$i:/tmp/
-    docker-machine ssh node-$i sudo cp -r /tmp/daemon.json /etc/docker/
+# copy cert
+./scp_machine_certs.sh
+
+# docker mirror
+for node in `ls nodes`;do
+    docker-machine scp ./daemon.json $node:/tmp/
+    docker-machine ssh $node sudo cp -r /tmp/daemon.json /etc/docker/
 done
 
- stop & start
-./stop_nodes.sh
-./start_nodes.sh
+# restart 
+./restart_nodes.sh
