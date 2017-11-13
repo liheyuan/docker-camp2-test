@@ -19,10 +19,15 @@ username ALL = NOPASSWD : ALL
 ./init_swarm.sh
 ```
 
+### init camp tool env
+```
+./init_tool.sh
+```
+
 ### openvpn
  * after openvpn is setup, you can access docker container inner swarm network through your local network * setup & run
 ```
-./init_openvpn_test.sh
+./config_openvpn_test.sh
 ./run_openvpn_test.sh
 ```
  * modify server config
