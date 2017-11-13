@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DST_NODE="node-1"
+DST_NODE="node-10"
 DST_HOME="/home/coder4/"
 
 for node in `ls nodes`; do

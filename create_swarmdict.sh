@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Manager node
-TOOL_NODE="node-1"
+TOOL_NODE="node-10"
 MANAGER_NODE="node-1"
 MANAGER_IP=$(docker-machine ip $MANAGER_NODE)
 

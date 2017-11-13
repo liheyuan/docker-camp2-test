@@ -11,6 +11,7 @@ SWARM_MANAGER_NODE="node-1"
 SWARM_MANAGER_IP=$(docker-machine ip $SWARM_MANAGER_NODE)
 SWARM_SECOND_MANAGER_NODE="node-2"
 SWARM_TOOL_NODE="node-10"
+SWARM_SUBNET="10.7.0.0/16"
 
 # Set node-1 as manager
 eval $(docker-machine env $SWARM_MANAGER_NODE)
@@ -44,12 +45,7 @@ done
 
 echo ">> The swarm cluster is up and running"
 
-# tool label
-eval $(docker-machine env $SWARM_MANAGER_NODE)
-SWARM_NODE_ID_TOOL=docker node ls -f name=$SWARM_TOOL_NODE --format="{{.ID}}"
-docker node update --label-add tool
-
 # overlay network
 eval $(docker-machine env $SWARM_MANAGER_NODE)
 docker network remove camp
-docker network create --driver overlay --attachable camp 
+docker network create --driver overlay --subnet $SWARM_SUBNET --attachable camp 

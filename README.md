@@ -25,6 +25,14 @@ username ALL = NOPASSWD : ALL
 ./init_openvpn_test.sh
 ./run_openvpn_test.sh
 ```
+ * modify server config
+```
+sudo vim ./docker_data/openvpn/openvpn.conf
+# comment this line
+# push "block-outside-dns"
+# add this line, x.x.x.x should be your dns server
+push "dhcp-option DNS x.x.x.x"
+```
  * get client config
 '''
 gen_openvpn_cert.sh username
@@ -35,7 +43,7 @@ gen_openvpn_cert.sh username
 #redirect-gateway def1
 
 # add this line, the swarm network route
-route 10.0.0.0 255.255.255.0
+route 10.7.0.0 255.255.0.0
 
 # dns update
 script-security 2
