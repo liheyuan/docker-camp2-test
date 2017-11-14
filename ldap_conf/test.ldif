@@ -1,0 +1,60 @@
+version: 1
+
+dn: dc=coder4,dc=com
+objectClass: organization
+objectClass: dcObject
+objectClass: top
+dc: coder4
+o: Example Inc.
+
+dn: cn=admin,dc=coder4,dc=com
+objectClass: organizationalRole
+objectClass: simpleSecurityObject
+cn: admin
+userPassword:: e1NIQTI1Nn1qR2wyNWJWQkJCVzk2UWk5VGU0VjM3Rm5xY2h6L0V1NHFCOXZLc
+ lJJcVJnPQ==
+description: LDAP administrator
+
+dn: ou=users,dc=coder4,dc=com
+objectClass: top
+objectClass: organizationalUnit
+ou: users
+
+dn: ou=groups,dc=coder4,dc=com
+objectClass: top
+objectClass: organizationalUnit
+ou: groups
+
+dn: cn=lihy,ou=users,dc=coder4,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: lihy
+sn:: 5p2O6LWr5YWD
+mail: lihy@coder4.com
+userPassword:: cGFzcw==
+
+dn: cn=liuxr,ou=users,dc=coder4,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: liuxr
+sn:: 5YiY5paw6JWK
+mail: liuxr@coder4.com
+userPassword:: cGFzcw==
+
+dn: cn=Users,ou=groups,dc=coder4,dc=com
+objectClass: top
+objectClass: groupOfUniqueNames
+cn: Users
+uniqueMember: cn=lihy,ou=users,dc=coder4,dc=com
+uniqueMember: cn=liuxr,ou=users,dc=coder4,dc=com
+
+dn: cn=Admin,ou=groups,dc=coder4,dc=com
+objectClass: top
+objectClass: groupOfUniqueNames
+cn: Admin
+uniqueMember: cn=lihy,ou=users,dc=coder4,dc=com
+

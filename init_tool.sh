@@ -3,4 +3,14 @@
 ./create_swarmdict.sh
 ./create_dns.sh
 # vpn
-./config_open_vpn_test.sh
+./create_openvpn_test.sh
+# ldap
+./create_ldap.sh
+# jenkins
+./create_jenkins.sh
+# gerrit 
+./create_gerrit.sh
+# kanboard
+./create_kanboard.sh
+# nginx
+./create_nginx.sh
