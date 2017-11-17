@@ -18,5 +18,5 @@ docker run \
     -v $VOLUME:/etc/openvpn \
     -p 1194:1194/udp \
     --cap-add=NET_ADMIN \
-    --rm \
+    --restart always \
     kylemanna/openvpn

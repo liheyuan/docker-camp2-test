@@ -19,5 +19,5 @@ docker run \
     --volume "$VOLUME_PLUGIN":/var/www/app/plugins \
     -p 9003:80 \
     --detach \
-    --rm \
+    --restart always \
     kanboard/kanboard:v1.0.48

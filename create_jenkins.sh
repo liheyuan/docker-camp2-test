@@ -16,5 +16,5 @@ docker run \
     -p 9001:8080 \
     -p 50000:50000 \
     --detach \
-    --rm \
+    --restart always \
     jenkins/jenkins:2.76-alpine 

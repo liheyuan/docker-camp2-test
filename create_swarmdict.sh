@@ -16,6 +16,6 @@ docker run \
     --env IP_SWARM_MANAGER=$MANAGER_IP \
     --volume /home/coder4/machines:/etc/dsd/machines \
     --detach \
-    --rm \
+    --restart always \
     coder4/swarmdict:1.1
 

@@ -14,3 +14,5 @@
 ./create_kanboard.sh
 # nginx
 ./create_nginx.sh
+# docker registry
+./create_docker_registry.sh

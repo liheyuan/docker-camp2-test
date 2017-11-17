@@ -35,5 +35,5 @@ docker run \
     -e LDAP_PASSWORD=$LDAP_QUERY_PASSWORD \
     -e WEBURL=$WEB_URL \
     --detach \
-    --rm \
+    --restart always \
     -d openfrontier/gerrit:2.14.5.1

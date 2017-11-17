@@ -23,5 +23,5 @@ docker run \
     --env LDAP_TLS=false \
     --env LDAP_DOMAIN=$DOMAIN \
     --detach \
-    --rm \
+    --restart always \
     osixia/openldap:1.1.9

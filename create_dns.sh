@@ -15,5 +15,5 @@ docker run \
     --env REST_URL=$REST_URL \
     --env IP_PREFIX=10. \
     --detach \
-    --rm \
+    --restart always \
     coder4/rubydns:1.1

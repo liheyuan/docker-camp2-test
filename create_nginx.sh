@@ -19,4 +19,5 @@ docker run \
     -v $VOLUME/$CONFIG_DIR:/etc/nginx/conf.d/:ro \
     -p 80:80/tcp \
     --detach \
+    --restart always \
     nginx:1.12-alpine
