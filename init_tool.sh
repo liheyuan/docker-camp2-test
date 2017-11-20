@@ -16,3 +16,5 @@
 ./create_nginx.sh
 # docker registry
 ./create_docker_registry.sh
+# nexus
+./create_nexus.sh
