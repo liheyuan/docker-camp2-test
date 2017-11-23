@@ -9,7 +9,7 @@ dns_ip=$(docker-machine ip $NODE_DNS)
 
 # stop & run server (should call init_open_vpn_test.sh before) 
 eval $(docker-machine env $NODE_TOOL)
-docker ps -q --filter "name=$NAME" | xargs -I {} docker rm -f {}
+docker ps -q -a --filter "name=$NAME" | xargs -I {} docker rm -f {}
 docker run \
     --name $NAME \
     --network camp \

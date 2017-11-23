@@ -11,7 +11,7 @@ docker-machine ssh $TOOL_NODE "sudo mkdir -p $VOLUME_REGISTRY && sudo chmod -R 7
 
 # submit to swarm master node
 eval $(docker-machine env $TOOL_NODE)
-docker ps -q --filter "name=$NAME" | xargs -I {} docker rm -f {}
+docker ps -q -a --filter "name=$NAME" | xargs -I {} docker rm -f {}
 docker run \
     --name $NAME \
     -p 5000:5000 \

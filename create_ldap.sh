@@ -13,7 +13,7 @@ docker-machine ssh $TOOL_NODE "sudo mkdir -p $VOLUME_CONFIG && sudo chmod -R 777
 
 # submit to swarm master node
 eval $(docker-machine env $TOOL_NODE)
-docker ps -q --filter "name=$NAME" | xargs -I {} docker rm -f {}
+docker ps -q -a --filter "name=$NAME" | xargs -I {} docker rm -f {}
 docker run \
     --name $NAME \
     -p 389:389 \
