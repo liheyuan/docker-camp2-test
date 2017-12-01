@@ -3,6 +3,7 @@
 TOOL_NODE="node-10"
 NAME="sbmvt_jenkins"
 VOLUME="/home/coder4/docker_data/jenkins"
+DNS=$(docker-machine ip $TOOL_NODE)
 
 # make sure volume valid 
 docker-machine ssh $TOOL_NODE "sudo mkdir -p $VOLUME && sudo chmod -R 777 $VOLUME"

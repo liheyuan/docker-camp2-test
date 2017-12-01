@@ -1,7 +1,7 @@
 #!/bin/bash
 
 INFRA_NODE="node-1"
-NAME="sbmvt-redis"
+NAME="sbmvt-redis-test"
 VOLUME="/home/coder4/docker_data/redis"
 PASSWORD="hehehe"
 EXTRA_CMD="redis-server --appendonly yes --requirepass $PASSWORD"

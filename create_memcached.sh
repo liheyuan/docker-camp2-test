@@ -1,7 +1,7 @@
 #!/bin/bash
 
 INFRA_NODE="node-1"
-NAME="sbmvt-memcached"
+NAME="sbmvt-memcached-test"
 MEMORY_LIMIT="256"
 EXTRA_CMD="memcached -m $MEMORY_LIMIT"
 

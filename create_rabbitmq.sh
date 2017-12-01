@@ -1,7 +1,7 @@
 #!/bin/bash
 
 INFRA_NODE="node-1"
-NAME="sbmvt-rabbitmq"
+NAME="sbmvt-rabbitmq-test"
 VOLUME="/home/coder4/docker_data/rabbitmq"
 RABBIT_VHOST="sbmvt"
 RABBIT_USER="sbmvt"

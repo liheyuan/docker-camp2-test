@@ -1,7 +1,7 @@
 #!/bin/bash
 
 INFRA_NODE="node-1"
-NAME="sbmvt-mysql"
+NAME="sbmvt-mysql-test"
 VOLUME="/home/coder4/docker_data/mysql"
 MYSQL_ROOT_PASS="hehehe"
 
