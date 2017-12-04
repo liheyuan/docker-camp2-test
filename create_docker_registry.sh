@@ -17,6 +17,7 @@ docker run \
     -p 5000:5000 \
     -v $VOLUME_AUTH:/auth \
     -v $VOLUME_REGISTRY:/var/lib/registry \
+    --env REGISTRY_STORAGE_DELETE_ENABLED=true \
     --detach \
     --restart always \
     registry:2.6.2

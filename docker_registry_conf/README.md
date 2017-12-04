@@ -42,3 +42,46 @@ curl $DR_HTTP/v2/alpine_test/tags/list
 ```
 
 ### pull from registry
+
+### clean registry
+ * make sure allow delete
+```
+# by config
+/etc/docker/registry/config.yml
+
+delete:
+    enabled: true
+
+# or docker env
+--env REGISTRY_STORAGE_DELETE_ENABLED=true
+
+```
+ * use project https://github.com/burnettk/delete-docker-registry-image
+```
+sudo apt-get install python python-pip
+sudo pip install requests
+curl https://raw.githubusercontent.com/burnettk/delete-docker-registry-image/master/delete_docker_registry_image.py | sudo tee /usr/local/bin/delete_docker_registry_image >/dev/null
+sudo chmod a+x /usr/local/bin/delete_docker_registry_image
+curl https://raw.githubusercontent.com/burnettk/delete-docker-registry-image/master/clean_old_versions.py | sudo tee /usr/local/bin/clean_old_versions >/dev/null
+sudo chmod a+x /usr/local/bin/clean_old_versions
+```
+ * delete
+```
+export REGISTRY_DATA_DIR=/home/coder4/docker_data/docker_registry/registry/docker/registry/v2
+
+# dryRun delete tag
+delete_docker_registry_image --image eureka-server:build_7 --dry-run
+# need shutdown registry
+delete_docker_registry_image --image eureka-server:build_7
+
+# dryRun delete whole image
+delete_docker_registry_image --image eureka-server --dry-run
+# need shutdown registry
+delete_docker_registry_image --image eureka-server
+```
+ * clean old, keep latest
+```
+# clean all image , keep last 3
+clean_old_versions. --image '^.*' -l 3 --registry-url http://docker.coder4.com:5000/
+```
+
