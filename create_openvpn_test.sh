@@ -19,4 +19,6 @@ docker run \
     -p 1194:1194/udp \
     --cap-add=NET_ADMIN \
     --restart always \
-    kylemanna/openvpn
+    kylemanna/openvpn \
+    ovpn_run --cipher AES-128-CBC
+
