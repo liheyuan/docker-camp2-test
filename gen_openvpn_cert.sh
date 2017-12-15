@@ -8,6 +8,7 @@ fi
 USERNAME="$1"
 OVPN_FILE="$USERNAME.ovpn"
 CIPHER="AES-128-CBC"
+DNS_IP="192.168.99.30"
 SWARM_ROUTE_CMD="route 10.7.0.0 255.255.0.0"
 
 TOOL_NODE="node-10"
@@ -26,6 +27,7 @@ cat >> $OVPN_FILE <<EOF
 $SWARM_ROUTE_CMD
 
 # dns update
+dhcp-option DNS $DNS_IP 
 script-security 2
 up /etc/openvpn/update-resolv-conf
 down /etc/openvpn/update-resolv-conf
