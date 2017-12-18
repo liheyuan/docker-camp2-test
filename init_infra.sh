@@ -7,3 +7,7 @@
 ./create_redis.sh
 # memcached
 ./create_memcached.sh
+# zk
+./create_zookeeper.sh
+# kafka
+./create_kafka.sh
