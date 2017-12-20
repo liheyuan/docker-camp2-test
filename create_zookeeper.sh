@@ -1,12 +1,15 @@
 #!/bin/bash
 
-SWARM_MANAGER_NODE="node-1"
-STACK_FILE="./zookeeper_stack.yaml"
-SERVICE_NAME="zookeeper"
-
-# sync config
-docker-machine scp -r $STACK_FILE  $SWARM_MANAGER_NODE:~/
+INFRA_NODE="node-1"
+NAME="sbmvt-zk-test"
 
 # submit to swarm master node
-eval $(docker-machine env $SWARM_MANAGER_NODE)
-docker stack deploy -c $STACK_FILE $SERVICE_NAME
+eval $(docker-machine env $INFRA_NODE)
+docker ps -q -a --filter "name=$NAME" | xargs -I {} docker rm -f {}
+docker run \
+    --network camp \
+    --hostname $NAME \
+    --name $NAME \
+    --detach \
+    --restart always \
+    zookeeper:3.5

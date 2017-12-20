@@ -3,6 +3,8 @@ services:
   kafka:
     image: wurstmeister/kafka:latest
     hostname: "{{.Service.Name}}-{{.Task.Slot}}-test"
+    dns: 
+      - 192.168.99.30
     deploy:
       mode: replicated
       replicas: 3
@@ -13,7 +15,7 @@ services:
         mode: host
     environment:
       HOSTNAME_COMMAND: "hostname"      
-      KAFKA_ZOOKEEPER_CONNECT: zk1-test:2181,zk2-test:2181,zk3-test:2181
+      KAFKA_ZOOKEEPER_CONNECT: sbmvt-zk-test:2181
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
       KAFKA_ADVERTISED_PROTOCOL_NAME: OUTSIDE
       KAFKA_ADVERTISED_PORT: 9094
